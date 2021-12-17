@@ -1,0 +1,16 @@
+{
+  "name": "webapi-clothingstore",
+  "version": "1.0.0",
+  "description": "This API is for online clothing store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manish Gurung",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.2",
+    "nodemon": "^2.0.15"
+  }
+}
