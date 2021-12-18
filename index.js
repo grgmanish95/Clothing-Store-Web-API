@@ -1,7 +1,13 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const userRouter = require('./router/userRouter');
 require('dotenv').config();
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use('/clothingStore/user',  userRouter);
 
 mongoose
   .connect(process.env.DbURI, {
