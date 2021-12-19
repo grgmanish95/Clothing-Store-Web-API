@@ -2,12 +2,14 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const userRouter = require('./router/userRouter');
+const productRouter = require('./router/productRouter');
 require('dotenv').config();
 
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use('/clothingStore/user',  userRouter);
+app.use('/clothingstore/user',  userRouter);
+app.use('/clothingstore/product', productRouter);
 
 mongoose
   .connect(process.env.DbURI, {
