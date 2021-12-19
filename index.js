@@ -5,7 +5,6 @@ const userRouter = require('./router/userRouter');
 const productRouter = require('./router/productRouter');
 require('dotenv').config();
 
-
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use('/clothingstore/user',  userRouter);
