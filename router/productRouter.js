@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../models/Product");
 const auth = require("../Authorization/authorization");
+const Cart = require('../models/Cart');
 
 router
   .route("/")
@@ -79,4 +80,5 @@ router
       .catch(next);
   });
 
+ 
 module.exports = router;

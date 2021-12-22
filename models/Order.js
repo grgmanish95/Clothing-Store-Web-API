@@ -32,7 +32,7 @@ const orderSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
-    },
+    
     wardNo: {
       type: Number,
       required: true,
@@ -46,6 +46,11 @@ const orderSchema = new mongoose.Schema(
       required: true,
     },
   },
+  totalAmount:{
+    type:Number,
+    required:true
+  }
+  },
   { timestamps: true }
 );
-module.exports = mongoose.mosel("Order", orderSchema);
+module.exports = mongoose.model("Order", orderSchema);

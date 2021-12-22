@@ -32,7 +32,21 @@ function verifyAdmin(req, res, next) {
   next();
 }
 
+function verifyCustomer(req, res, next) {
+  if (!req.user) {
+    let err = new Error("Unauthorized Access!");
+    err.status = 401;
+    return next(err);
+  } else if (req.user.role !== "customer") {
+    let err = new Error("Forbidden!!!");
+    err.status = 403;
+    return next(err);
+  }
+  next();
+}
+
 module.exports = {
   verifyUser,
   verifyAdmin,
+  verifyCustomer
 };
