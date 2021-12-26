@@ -3,8 +3,17 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+const validation = require("../Validator/validator");
 
 router.post("/register", (req, res, next) => {
+ const {errors, isValid} = validation.registerValidator(req.body);
+ if(!isValid){
+   res.status(400).json({
+     status:"errors",
+     message:errors,
+   });
+ }
+
 let {username, password, firstName, lastName, email, role } = req.body;
   User.findOne({ username})
     .then((user) => {
